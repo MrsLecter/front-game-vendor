@@ -1,0 +1,53 @@
+@import 'constants/constans.scss';
+
+.avatar {
+  @include flexRow(center, center);
+  width: fit-content;
+  color: $white;
+  text-transform: uppercase;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &.square {
+    border-radius: toRem(16);
+  }
+
+  & span {
+    @include flexRow(center, center);
+    @include background-accent();
+
+    text-align: center;
+    font-size: toRem(24);
+    text-transform: uppercase;
+    user-select: none;
+
+    html[data-theme='dark'] & {
+      color: $dark;
+      border-color: transparent;
+      background: $grey;
+    }
+  }
+}
+
+.avatarContainer {
+  @include flexRow(center, left);
+
+  &_credentials {
+    margin-left: toRem(8);
+
+    [data-theme='dark'] & {
+      color: #d8deeb;
+    }
+    color: #110f10;
+    font-size: toRem(16);
+    line-height: toRem(22);
+
+    p:last-child {
+      opacity: 0.72;
+      color: #7a7878;
+      [data-theme='dark'] & {
+        color: #d8deeb;
+      }
+    }
+  }
+}
