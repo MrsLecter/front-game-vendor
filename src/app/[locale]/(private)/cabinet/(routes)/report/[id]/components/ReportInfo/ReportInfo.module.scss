@@ -1,0 +1,36 @@
+@import 'constants/constans.scss';
+
+.info {
+  &_row {
+    @include flexRow(center, space-between);
+    margin-top: toRem(24);
+
+    &:first-child {
+      margin-top: toRem(0);
+    }
+  }
+
+  &_attachment {
+    @include flexRow(center, flex-start);
+    margin-top: toRem(24);
+
+    button {
+      margin-top: toRem(8);
+      height: toRem(40);
+      margin-bottom: toRem(24);
+
+      background-color: #ecf2fe;
+      color: #548bf3;
+
+      // background: linear-gradient(to right, #0c44ac, #548bf3);
+      // background-clip: text;
+      // -webkit-text-fill-color: transparent;
+
+      [data-theme='dark'] & {
+        color: #d8deeb;
+        // background: linear-gradient(to right, #d8deeb, #d8deeb);
+        background-color: rgba(57, 60, 77, 0.36);
+      }
+    }
+  }
+}

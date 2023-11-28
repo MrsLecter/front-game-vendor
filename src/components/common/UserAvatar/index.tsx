@@ -4,6 +4,7 @@ import { FC } from 'react';
 
 import s from './UserAvatar.module.scss';
 
+import avatar from '../../../assets/avatar.jpg';
 interface UserAvatarProps {
   avatarURL?: string;
   userName?: string;
@@ -28,7 +29,7 @@ export const UserAvatar: FC<UserAvatarProps> = ({
     >
       {avatarURL ? (
         <Image
-          src={avatarURL}
+          src={avatar}
           width={size}
           height={size}
           alt={userName || 'User'}

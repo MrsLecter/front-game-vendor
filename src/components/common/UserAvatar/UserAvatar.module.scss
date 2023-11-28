@@ -43,6 +43,7 @@
     line-height: toRem(22);
 
     p:last-child {
+      margin-top: toRem(4);
       opacity: 0.72;
       color: #7a7878;
       [data-theme='dark'] & {

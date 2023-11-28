@@ -810,11 +810,11 @@
       "ban_suspect": "Заблокувати підозрюваного",
       "report_date_and_time": "Дата та час звіту",
       "section": "Секція",
-      "Last update": "Останнє оновлення",
+      "last_update": "Останнє оновлення",
       "description": "Опис",
       "attachment": "Додатки",
       "answered": "Відповіли",
-      "update_Status": "Оновити статус"
+      "update_status": "Оновити"
     }
   },
   "SellersPage": {

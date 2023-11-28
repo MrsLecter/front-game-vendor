@@ -1,0 +1,35 @@
+@import 'constants/constans.scss';
+
+.card {
+  padding: toRem(16);
+  background-color: #f8f7f7;
+  border-radius: toRem(16);
+  [data-theme='dark'] & {
+    background-color: rgba(57, 60, 77, 0.24);
+  }
+
+  &_wrapper {
+    @include flexRow(center, flex-start);
+    margin-top: toRem(12);
+  }
+
+  &_button {
+    margin-left: toRem(8);
+    max-width: unset;
+    font-size: toRem(14);
+    color: #ed0101;
+    background-color: #ffffff;
+
+    &:last-child {
+      margin-left: toRem(16);
+      min-width: toRem(48);
+      padding: 0;
+      color: #212121;
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgba(0, 0, 0, 0.24);
+      color: #d8deeb;
+    }
+  }
+}

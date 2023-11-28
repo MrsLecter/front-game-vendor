@@ -951,11 +951,11 @@
       "ban_suspect": "Ban suspect",
       "report_date_and_time": "Report Date & Time",
       "section": "Section",
-      "Last update": "Last update",
+      "last_update": "Last update",
       "description": "Description",
       "attachment": "Attachment",
       "answered": "Answered",
-      "update_Status": "Update Status"
+      "update_status": "Update Status"
     }
   },
   "SellersPage": {
