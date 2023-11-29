@@ -4,15 +4,12 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useMutation } from '@apollo/client';
 // import { SEND_MESSAGE } from 'apollo/mutations/chat';
 
 import { IProduct } from 'types/shopTypes';
-import { EnumLanguage } from 'types/enums';
-import { ISendMessageResponse } from 'types/chatTypes';
-import { messageShema } from 'utils/schemes/auth-schema';
+import { messageShema, reportMessageShema } from 'utils/schemes/auth-schema';
 
 import { MinorButton } from 'ui/components/Button';
 import { UserAvatar } from 'components/common/UserAvatar';
@@ -26,50 +23,60 @@ import { ErrorMessage } from 'components/common/messages/Messages';
 import s from './ReportChat.module.scss';
 import { ChatMessage } from '../ChatMessage';
 
-interface IChat {
-  message: string;
+interface IMessage {
+  createdAt: string;
+  content: string;
+  isReply: boolean;
+}
+
+export interface IReportUser {
+  avatarURL: string;
+  userName: string;
+  isOnline: boolean;
+  email: string;
 }
 
 interface ReportChatProps {
-  product: IProduct;
+  user: IReportUser;
   secondary?: boolean;
   chatHeight?: number;
 }
 
 export const ReportChat: FC<ReportChatProps> = ({
-  product,
+  user,
   secondary = false,
   chatHeight = 402,
 }) => {
   const t = useTranslations('ProductPage.Chat');
   const { locale } = useParams();
   const [modalOpen, setModalOpen] = useState(false);
+  const [messages, setMessages] = useState<IMessage[]>([]);
 
   const handleCloseModal = () => setModalOpen(false);
   const handleToggleModal = () => setModalOpen(!modalOpen);
 
-  const { register, handleSubmit, reset } = useForm<IChat>({
-    resolver: yupResolver(messageShema),
+  const { register, handleSubmit, reset } = useForm<IMessage>({
+    resolver: yupResolver(reportMessageShema),
   });
 
   // const [sendMessage, { loading, error }] = useMutation(SEND_MESSAGE);
 
-  const handleMessageSubmit = ({ message }: IChat) => {
-    // sendMessage({
-    //   variables: {
-    //     input: {
-    //       message: message,
-    //       recipientId: '653fe9bdd9ca7d9b71b933b1',
+  const handleMessageSubmit = ({ content }: IMessage) => {
+    //   sendMessage({
+    //     variables: {
+    //       input: {
+    //         message: message,
+    //         recipientId: '653fe9bdd9ca7d9b71b933b1',
+    //       },
     //     },
-    //   },
-    //   onCompleted(data: ISendMessageResponse) {
-    //     console.log(data.sendMessage.sender);
-    //     reset();
-    //   },
-    //   onError(err) {
-    //     console.error(err);
-    //   },
-    // });
+    //     onCompleted(data: ISendMessageResponse) {
+    //       console.log(data.sendMessage.sender);
+    //       reset();
+    //     },
+    //     onError(err) {
+    //       console.error(err);
+    //     },
+    //   });
   };
 
   return (
@@ -77,14 +84,16 @@ export const ReportChat: FC<ReportChatProps> = ({
       <ScrollBlock.Top className={s.seller}>
         <div className={s.seller_block}>
           <div className={s.seller_image}>
-            <UserAvatar
-              avatarURL={product.createdBy.avatarURL}
-              userName={product.createdBy.userName}
-            />
+            <UserAvatar avatarURL={user.avatarURL} userName={user.userName} />
           </div>
           <div className={s.seller_info}>
-            <h4>{product.createdBy.userName ?? 'Need Seller Name'}</h4>
-            <span className={s.seller_status}>Online</span>
+            <h4>{user.userName ?? 'Need Seller Name'}</h4>
+            {user.isOnline && (
+              <span className={s.seller_status_online}>Online</span>
+            )}
+            {!user.isOnline && (
+              <span className={s.seller_status_offline}>Offline</span>
+            )}
           </div>
         </div>
         <button className={s.seller_report} onClick={handleToggleModal}>
@@ -96,36 +105,16 @@ export const ReportChat: FC<ReportChatProps> = ({
         wrapperClassName={s.chat_wrapper}
         className={s.chat_body}
       >
-        <ChatMessage
-          createdAt="12:15"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={true}
-        />
-        <ChatMessage
-          createdAt="10:25"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={true}
-        />
-        <ChatMessage
-          createdAt="12:15"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={true}
-        />
-        <ChatMessage
-          createdAt="10:25"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={false}
-        />
-        <ChatMessage
-          createdAt="12:15"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={true}
-        />
-        <ChatMessage
-          createdAt="10:25"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-          isReply={false}
-        />
+        {messages?.map((message, index) => {
+          return (
+            <ChatMessage
+              createdAt={message.createdAt}
+              content={message.content}
+              isReply={message.isReply}
+              key={message.createdAt + index}
+            />
+          );
+        })}
         <div className={s.chat_messages}></div>
       </ScrollBlock.Body>
       <ScrollBlock.Footer className={s.chat_footer}>
@@ -135,7 +124,7 @@ export const ReportChat: FC<ReportChatProps> = ({
         >
           <div className={s.chat_input}>
             <input
-              {...register('message', {
+              {...register('content', {
                 required: true,
               })}
               type="text"
@@ -151,9 +140,9 @@ export const ReportChat: FC<ReportChatProps> = ({
       <ReportModal
         isOpen={modalOpen}
         onCloseModal={handleCloseModal}
-        avatarURL={product.createdBy.avatarURL}
-        userName={product.createdBy.userName}
-        email={product.createdBy.email}
+        avatarURL={user.avatarURL}
+        userName={user.userName}
+        email={user.email}
       />
       {/* {error && <ErrorMessage text={error.message} />}
       {loading && <Loader />} */}

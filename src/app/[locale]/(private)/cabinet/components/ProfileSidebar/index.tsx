@@ -18,8 +18,6 @@ import { PlusIcon } from 'components/icons/PlusIcon';
 import s from './ProfileSidebar.module.scss';
 import { ISidebarConfig } from '../../layout';
 
-//delete
-import avatar from '../../../../../../assets/avatar.jpg';
 import { useDarkTheme } from 'utils/hooks/useDarkTheme';
 
 interface IItem {
@@ -50,8 +48,7 @@ export const ProfileSidebar: FC<ProfileSidebarProps> = ({ config, user }) => {
                 <div className={s.user_image_backdrop}>
                   {user?.avatarURL ? (
                     <Image
-                      src={avatar}
-                      // src={user?.avatarURL}
+                      src={user?.avatarURL}
                       width={76}
                       height={76}
                       alt={user?.userName}

@@ -20,7 +20,7 @@ interface ReportInfo {
   body: Date | string;
 }
 
-interface ReportInfoProps {
+export interface ReportInfoProps {
   reporter: User;
   suspect: User;
   dataAndTime: string;

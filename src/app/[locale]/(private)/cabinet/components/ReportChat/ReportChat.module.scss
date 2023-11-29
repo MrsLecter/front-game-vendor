@@ -41,10 +41,17 @@
     }
 
     &_status {
+      margin-top: toRem(4);
       font-size: toRem(14);
       line-height: 142.857143%; /* 20/14 */
-      color: $green;
-      margin-top: toRem(4);
+
+      &_online {
+        color: $green;
+      }
+
+      &_offline {
+        color: rgba(216, 222, 235, 0.64);
+      }
     }
 
     &_report {

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { EnumRoles } from 'types/enums';
 
 import { Container } from 'ui/components/Container';
@@ -25,35 +25,10 @@ interface PrivateLayoutProps {
 }
 
 export default async function PrivateLayout({ children }: PrivateLayoutProps) {
+  const [user, setUser] = useState<IUser>();
   let currentConfig: ISidebarConfig = buyerConfig;
-  ///TODO: delete mock user
-  const user: IUser = {
-    achievements: [],
-    address: {
-      city: 'Kharkiv',
-      phoneNumber: '0000',
-      street: 'SomeStreet',
-      zipCode: '1111',
-    },
-    avatarURL: '../../../../assets/avatar.png',
-    backgroundColor: '',
-    backgroundImage: '',
-    banned: false,
-    bonuses: 2,
-    confidentLvl: 8,
-    email: 'Jane@gmail.com',
-    emailConfirmDate: '12.11.20',
-    experience: 2,
-    id: '12312',
-    isTwoFactorEnabled: false,
-    level: 8,
-    qrCode: '1231',
-    ratingsStats: { entries: [] },
-    role: EnumRoles.BUYER,
-    stripeId: '123',
-    subscribed: false,
-    userName: 'Jane Cooper',
-  };
+
+  //set user from query
 
   return (
     <>
