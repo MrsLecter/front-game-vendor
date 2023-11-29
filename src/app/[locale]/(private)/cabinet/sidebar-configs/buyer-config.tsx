@@ -11,6 +11,7 @@ import { PaymentIcon } from 'components/icons/PaymentIcon';
 import { FlagIcon } from 'components/icons/FlagIcon';
 import { ExitIcon } from 'components/icons/ExitIcon';
 import { SectionsIcon } from 'components/icons/SectionsIcon';
+import { ManIcon } from 'components/icons/ManIcon';
 
 export const buyerConfig: ISidebarConfig = {
   items: [
@@ -46,7 +47,12 @@ export const buyerConfig: ISidebarConfig = {
       href: ROUTES.PRIVATE.ACHIEVEMENT,
     },
     { icon: <KeyIcon />, title: 'security', href: ROUTES.PRIVATE.SECURITY },
-    { icon: <FlagIcon />, title: 'report', href: ROUTES.PRIVATE.REPORT.INBOX },
+    {
+      icon: <FlagIcon />,
+      lightIcon: <ManIcon />,
+      title: 'report',
+      href: ROUTES.PRIVATE.REPORT.INBOX,
+    },
     { icon: <ExitIcon />, title: 'logout', href: ROUTES.HOME },
   ],
 };

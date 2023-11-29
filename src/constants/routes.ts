@@ -33,8 +33,6 @@ export const ROUTES = {
 
     REPORT: {
       INBOX: '/cabinet/report',
-      // DETAILS: '/cabinet/report/[id]',
-      PERSON: '/cabinet/report/details/[person]',
     },
 
     SELLER: {

@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { useTranslations } from 'next-intl';
 
 import s from './ReportInfo.module.scss';
-import { ParticipantCard } from '../ParticipantCard/ParticipantCard';
-import { ColumnTemplate } from '../ColumnTemplate/ColumnTemplate';
+import { ParticipantCard } from '../ParticipantCard';
+import { ColumnTemplate } from '../ColumnTemplate';
 import { DownloadIcon } from 'components/icons/DownloadIcon';
 import { SecondaryButton } from 'ui/components/Button';
 
@@ -12,6 +12,7 @@ interface User {
   name: string;
   email: string;
   avatarURL: string;
+  chatHref: string;
 }
 
 interface ReportInfo {
@@ -27,6 +28,7 @@ interface ReportInfoProps {
   lastUpdate: string;
   description: string;
   attachmentFileName: string;
+  className?: string;
   handleReporterBan: () => void;
   handleSuspectBan: () => void;
   handleDownloadAttachment: () => void;
@@ -40,6 +42,7 @@ export const ReportInfo: FC<ReportInfoProps> = ({
   lastUpdate,
   description,
   attachmentFileName,
+  className,
   handleReporterBan,
   handleSuspectBan,
   handleDownloadAttachment,
@@ -47,7 +50,7 @@ export const ReportInfo: FC<ReportInfoProps> = ({
   const t = useTranslations('ProfilePage.CurrentReport');
 
   return (
-    <div>
+    <div className={className ? className : ''}>
       <div className={s.info_row}>
         <ParticipantCard
           header={t('reporter')}
@@ -55,6 +58,7 @@ export const ReportInfo: FC<ReportInfoProps> = ({
           user={reporter}
           handleParticipantBan={handleReporterBan}
           key={reporter.name}
+          chatHref={reporter.chatHref}
         />
         <ParticipantCard
           header={t('suspect')}
@@ -62,6 +66,7 @@ export const ReportInfo: FC<ReportInfoProps> = ({
           user={suspect}
           handleParticipantBan={handleSuspectBan}
           key={suspect.name}
+          chatHref={suspect.chatHref}
         />
       </div>
       <div className={s.info_row}>
@@ -86,7 +91,7 @@ export const ReportInfo: FC<ReportInfoProps> = ({
             className={s.info_attachment_btn}
             onClick={handleDownloadAttachment}
           >
-            <div>{attachmentFileName}</div>
+            <span>{attachmentFileName}</span>
             <DownloadIcon />
           </SecondaryButton>
         </ColumnTemplate>

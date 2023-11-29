@@ -4,6 +4,7 @@
   padding: toRem(16);
   background-color: #f8f7f7;
   border-radius: toRem(16);
+
   [data-theme='dark'] & {
     background-color: rgba(57, 60, 77, 0.24);
   }
@@ -14,11 +15,27 @@
   }
 
   &_button {
+    position: relative;
     margin-left: toRem(8);
     max-width: unset;
     font-size: toRem(14);
     color: #ed0101;
     background-color: #ffffff;
+
+    &::before {
+      content: '';
+      position: absolute;
+
+      [data-theme='dark'] & {
+        @include border-gradient(
+          $radius,
+          toRem(1),
+          110deg,
+          rgba(255, 255, 255, 0.38),
+          #302b3f
+        );
+      }
+    }
 
     &:last-child {
       margin-left: toRem(16);

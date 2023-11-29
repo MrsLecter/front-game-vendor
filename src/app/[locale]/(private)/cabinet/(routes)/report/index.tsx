@@ -100,6 +100,261 @@ export const Report: FC = () => {
         id: '234',
       },
     },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.ANSWERED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.WAITING,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.CLOSED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.ANSWERED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.WAITING,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.CLOSED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.ANSWERED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.WAITING,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.CLOSED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.ANSWERED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.WAITING,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.CLOSED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.ANSWERED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.WAITING,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
+    {
+      id: '123',
+      report: {
+        code: '58842',
+        text: 'Penny Drop Report',
+        date: '19/06/20, 11:30',
+        status: EnumReportStatus.CLOSED,
+      },
+      reporter: {
+        name: 'Cody Fisher',
+        email: 'michael.mitc@example.com',
+        avatarUrl: avatar,
+      },
+      offers: {
+        id: '234',
+      },
+    },
   ];
 
   return (

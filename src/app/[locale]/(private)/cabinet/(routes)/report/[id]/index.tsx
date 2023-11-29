@@ -8,7 +8,7 @@ import { Section } from 'components/common/profile/Section';
 import { BackButton } from 'components/common/profile/BackButton';
 import { useForm } from 'react-hook-form';
 import { UpdateForm } from 'components/common/forms/UpdateForm';
-import { ReportInfo } from './components/ReportInfo/ReportInfo';
+import { ReportInfo } from '../../../components/ReportInfo';
 interface IDetailsForm {
   answered_status: string;
 }
@@ -33,11 +33,13 @@ export const CurrentReport: FC = () => {
       name: 'Nareerat Sakuna',
       email: 'smallpaul@me.com',
       avatarURL: '../.././report',
+      chatHref: '456123',
     },
     suspect: {
       name: 'Bessie Cooper',
       email: 'smallpaul@me.com',
       avatarURL: '../.././report',
+      chatHref: '342432',
     },
     dataAndTime: '4 Sep 2023  14:30',
     sectionName: 'Alternative guidance councilor',
@@ -56,7 +58,7 @@ export const CurrentReport: FC = () => {
         <BackButton />
         <h3>{t('title')}</h3>
       </Section.FlexHeader>
-      <Section.Body>
+      <Section.Body className={s.body}>
         <ReportInfo {...responseInfoProps} />
       </Section.Body>
       <div className={s.formWrapper}>

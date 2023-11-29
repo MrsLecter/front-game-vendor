@@ -1,4 +1,0 @@
-TODO:
-change border
-avatar
-delete images from assets

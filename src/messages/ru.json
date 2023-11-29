@@ -815,6 +815,9 @@
       "attachment": "Додатки",
       "answered": "Відповіли",
       "update_status": "Оновити"
+    },
+    "Chat": {
+      "close_report": "Закрити звіт"
     }
   },
   "SellersPage": {

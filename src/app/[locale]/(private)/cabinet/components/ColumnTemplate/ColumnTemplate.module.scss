@@ -1,20 +1,21 @@
 @import 'constants/constans.scss';
 
-.column {
+.card {
   @include flexColumn(flex-start, center);
-  padding: toRem(16);
 
   &_header {
     width: 100%;
-    color: #d8deeb;
+    color: #7a7878;
+
     [data-theme='dark'] & {
       color: #7a7878;
     }
   }
 
   &_body {
-    margin-top: toRem(12);
+    margin-top: toRem(4);
     color: #110f10;
+
     [data-theme='dark'] & {
       color: #d8deeb;
     }

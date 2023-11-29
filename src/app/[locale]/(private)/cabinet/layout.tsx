@@ -13,6 +13,7 @@ import { IUser } from 'types/userTypes';
 export interface ISidebarConfig {
   items: {
     icon: ReactNode;
+    lightIcon?: ReactNode;
     title: string;
     href: string;
   }[];

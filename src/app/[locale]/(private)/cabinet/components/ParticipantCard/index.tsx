@@ -3,10 +3,11 @@ import { StaticImageData } from 'next/image';
 
 import s from './ParticipantCard.module.scss';
 import { UserAvatarWithCredentials } from 'components/common/UserAvatar';
-import { SecondaryButton } from 'ui/components/Button';
-import { ColumnTemplate } from '../ColumnTemplate/ColumnTemplate';
+import { SecondaryButton, SecondaryLinkButton } from 'ui/components/Button';
 
 import { ChatIcon } from 'components/icons/ChatIcon';
+import { usePathname } from 'next/navigation';
+import { ColumnTemplate } from '../ColumnTemplate';
 
 interface ICard {
   icon: StaticImageData;
@@ -22,6 +23,7 @@ interface ParticipantCardProps {
   };
   header: string;
   banButtonLabel: string;
+  chatHref: string;
   className?: string;
   handleParticipantBan: () => void;
 }
@@ -31,10 +33,16 @@ export const ParticipantCard: FC<ParticipantCardProps> = ({
   className,
   header,
   banButtonLabel,
+  chatHref,
   handleParticipantBan,
 }) => {
+  const pathname = usePathname();
+
   return (
-    <ColumnTemplate headerLabel={header} className={s.card}>
+    <ColumnTemplate
+      headerLabel={header}
+      className={`${s.card} ${className ? className : ''}`.trim()}
+    >
       <div className={s.card_wrapper}>
         <UserAvatarWithCredentials
           avatarURL={user.avatarURL}
@@ -48,9 +56,12 @@ export const ParticipantCard: FC<ParticipantCardProps> = ({
         >
           {banButtonLabel}
         </SecondaryButton>
-        <SecondaryButton className={s.card_button} type="submit">
+        <SecondaryLinkButton
+          href={`${pathname}/chat/${chatHref}`}
+          className={s.card_button}
+        >
           <ChatIcon />
-        </SecondaryButton>
+        </SecondaryLinkButton>
       </div>
     </ColumnTemplate>
   );

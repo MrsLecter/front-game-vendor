@@ -9,6 +9,21 @@
   backdrop-filter: $bg_blur;
   overflow: hidden;
 
+  &::before {
+    content: '';
+    position: absolute;
+
+    [data-theme='dark'] & {
+      @include border-gradient(
+        toRem(24),
+        toRem(1),
+        160deg,
+        rgba(255, 255, 255, 0.38),
+        #23232a
+      );
+    }
+  }
+
   &_content {
     overflow-y: auto;
 
@@ -49,7 +64,8 @@
       position: relative;
       @include flexRow(center, center);
       width: toRem(74);
-      height: toRem(1.15 * 74);
+      height: toRem(74);
+      z-index: 3;
 
       &_border {
         position: absolute;
@@ -59,8 +75,7 @@
         right: 0;
         width: toRem(74);
         height: toRem(1.15 * 74);
-        background: linear-gradient(to bottom, #d8deeb 2%, $grey 48%),
-          radial-gradient(#000 24%, #fff);
+        background: #dfddde;
         clip-path: polygon(
           50% 0%,
           100% 25%,
@@ -221,6 +236,7 @@
 
   &_button {
     @include flexRow(center, flex-start);
+    position: relative;
     column-gap: toRem(12);
     width: 100%;
 
@@ -260,6 +276,20 @@
         color: $dark;
         background-color: $grey;
         border-color: $grey_pale;
+      }
+    }
+    &.active::before {
+      content: '';
+      position: absolute;
+
+      [data-theme='dark'] & {
+        @include border-gradient(
+          $radius,
+          toRem(1),
+          150deg,
+          rgba(255, 255, 255, 0.38),
+          transparent
+        );
       }
     }
 

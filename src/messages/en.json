@@ -956,6 +956,9 @@
       "attachment": "Attachment",
       "answered": "Answered",
       "update_status": "Update Status"
+    },
+    "Chat": {
+      "close_report": "Close report"
     }
   },
   "SellersPage": {
