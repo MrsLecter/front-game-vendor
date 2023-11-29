@@ -33,19 +33,21 @@
   @include flexRow(center, left);
 
   &_credentials {
+    min-width: toRem(170);
     margin-left: toRem(8);
+    color: #110f10;
+    font-size: toRem(16);
+    line-height: toRem(22);
 
     [data-theme='dark'] & {
       color: #d8deeb;
     }
-    color: #110f10;
-    font-size: toRem(16);
-    line-height: toRem(22);
 
     p:last-child {
       margin-top: toRem(4);
       opacity: 0.72;
       color: #7a7878;
+
       [data-theme='dark'] & {
         color: #d8deeb;
       }

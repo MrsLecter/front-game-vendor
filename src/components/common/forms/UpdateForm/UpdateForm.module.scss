@@ -17,4 +17,9 @@
       }
     }
   }
+
+  &_submit {
+    padding: 0 toRem(24);
+    min-width: toRem(141);
+  }
 }

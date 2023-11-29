@@ -64,10 +64,11 @@
       position: relative;
       @include flexRow(center, center);
       width: toRem(74);
-      height: toRem(74);
+      height: toRem(1.15 * 74);
       z-index: 3;
 
       &_border {
+        @include hexagon-clip-path();
         position: absolute;
         top: 0;
         bottom: 0;
@@ -76,56 +77,42 @@
         width: toRem(74);
         height: toRem(1.15 * 74);
         background: #dfddde;
-        clip-path: polygon(
-          50% 0%,
-          100% 25%,
-          100% 75%,
-          50% 100%,
-          0% 75%,
-          0% 25%
-        );
         z-index: -3;
       }
 
       &_backdrop {
+        @include hexagon-clip-path();
         position: relative;
         margin: toRem(1);
         width: toRem(72);
         height: toRem(1.15 * 72);
+
         background-color: $grey;
+        z-index: 1;
+
         [data-theme='dark'] & {
-          background-color: $grey;
+          background: linear-gradient(
+            180deg,
+            #0a131f 0%,
+            #0a131f 70%,
+            $transparent_color 100%
+          );
         }
-        clip-path: polygon(
-          50% 0%,
-          100% 25%,
-          100% 75%,
-          50% 100%,
-          0% 75%,
-          0% 25%
-        );
-        z-index: -2;
       }
 
       & img {
+        @include hexagon-clip-path();
         margin: toRem(3);
         border-radius: toRem(20);
         width: toRem(66);
         height: toRem(1.15 * 66);
         object-fit: cover;
         object-position: center;
-        clip-path: polygon(
-          50% 0%,
-          100% 25%,
-          100% 75%,
-          50% 100%,
-          0% 75%,
-          0% 25%
-        );
       }
 
       & > span {
         @include flexRow(center, center);
+        @include hexagon-clip-path();
         width: 100%;
         height: 100%;
         text-align: center;
@@ -134,14 +121,6 @@
         border-radius: toRem(20);
         background-color: $grey_pale;
         color: $dark;
-        clip-path: polygon(
-          0% 25%,
-          0% 75%,
-          50% 100%,
-          100% 75%,
-          100% 25%,
-          50% 0%
-        );
         z-index: 2;
       }
     }

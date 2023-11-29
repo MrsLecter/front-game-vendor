@@ -41,7 +41,9 @@ export const UpdateForm: FC<UpdateFormProps> = ({
             </DropdownField>
           );
         })}
-        <Button type="submit">{submitLabel}</Button>
+        <Button type="submit" className={s.form_submit}>
+          {submitLabel}
+        </Button>
       </div>
     </form>
   );

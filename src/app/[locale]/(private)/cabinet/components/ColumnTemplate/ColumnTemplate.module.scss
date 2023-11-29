@@ -5,10 +5,12 @@
 
   &_header {
     width: 100%;
+    font-size: toRem(14);
     color: #7a7878;
 
     [data-theme='dark'] & {
-      color: #7a7878;
+      color: $dark;
+      opacity: 0.72;
     }
   }
 
